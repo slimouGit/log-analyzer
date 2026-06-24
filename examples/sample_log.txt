@@ -1,0 +1,6 @@
+2026-06-23 10:42:11 ERROR PaymentService - Payment capture failed
+java.lang.NullPointerException: Cannot invoke "Coupon.getDiscount()" because "coupon" is null
+    at com.shop.checkout.PaymentService.applyDiscount(PaymentService.java:87)
+    at com.shop.checkout.CheckoutController.pay(CheckoutController.java:42)
+    at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+2026-06-23 10:42:12 INFO CheckoutController - Request failed for orderId=ORD-10492, customerId=C-9921

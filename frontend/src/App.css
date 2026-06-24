@@ -1,0 +1,410 @@
+:root {
+  --bg: #eef1f6;
+  --surface: #ffffff;
+  --surface-soft: #f8f9fc;
+  --stroke: #d8deea;
+  --text: #1a2233;
+  --muted: #5c667a;
+  --primary: #1164e0;
+  --primary-soft: #eaf2ff;
+  --success: #0f9d58;
+  --danger: #d63638;
+  /* legacy aliases kept for badge colours */
+  --error: #d63638;
+  --surface-dim: #f8f9fc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", "Segoe UI", "Helvetica Neue", sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, #f8fbff 0%, transparent 45%),
+    radial-gradient(circle at top right, #f3f7ff 0%, transparent 40%),
+    var(--bg);
+}
+
+/* ── Page shell ─────────────────────────────────── */
+.page-shell {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 14px 18px;
+}
+
+/* ── Sticky header ──────────────────────────────── */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 4px 0 10px;
+}
+
+.header-inner {
+  border: 1px solid var(--stroke);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 16px;
+}
+
+.header-nav {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  align-items: stretch;
+}
+
+.nav-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: 1px solid var(--stroke);
+  padding: 6px 12px;
+  background: var(--surface-soft);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  cursor: default;
+}
+
+.nav-pill-button {
+  margin-top: 0;
+  border: 1px solid var(--stroke);
+  color: var(--text);
+  box-shadow: none;
+}
+
+a.nav-pill {
+  cursor: pointer;
+}
+
+a.nav-pill:hover {
+  background: var(--primary-soft);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.nav-pill-button:hover {
+  background: var(--primary-soft);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* ── Content ────────────────────────────────────── */
+.content {
+  padding-top: 8px;
+}
+
+/* ── Box ────────────────────────────────────────── */
+.box {
+  margin-top: 16px;
+  border: 1px solid var(--stroke);
+  background: var(--surface);
+  padding: 16px;
+}
+
+.box h2 {
+  margin-bottom: 14px;
+}
+
+/* ── Two-column main layout ─────────────────────── */
+.main-layout {
+  display: grid;
+  grid-template-columns: minmax(380px, 0.95fr) minmax(640px, 1.35fr);
+  gap: 14px;
+  margin-top: 0;
+}
+
+.main-layout > .box {
+  margin-top: 0;
+}
+
+/* ── Forms ──────────────────────────────────────── */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+input,
+select,
+textarea {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  border: 1px solid var(--stroke);
+  border-radius: 0;
+  background: var(--surface);
+  padding: 10px 12px;
+  color: var(--text);
+  font: inherit;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 200px;
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ── Row (2-col inside form) ────────────────────── */
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.field-box {
+  background: var(--surface-soft);
+  border: 1px solid #d5e1f9;
+  padding: 12px;
+}
+
+.field-box label {
+  margin-top: 0;
+}
+
+/* ── Buttons ────────────────────────────────────── */
+button {
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  margin-top: 4px;
+  padding: 10px 14px;
+  background: var(--primary);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── Error / muted ──────────────────────────────── */
+.error-box {
+  margin-bottom: 12px;
+  padding: 12px;
+  color: var(--danger);
+  background: #fff3f3;
+  border: 1px solid #f0c0c1;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.title-preview {
+  padding: 10px 12px;
+  background: var(--surface-soft);
+  border-left: 3px solid var(--primary);
+  font-size: 0.88rem;
+  word-break: break-word;
+}
+
+/* ── Result header / badges ─────────────────────── */
+.result-header,
+.card-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--stroke);
+}
+
+.analysis-id,
+.category {
+  padding: 4px 10px;
+  background: var(--surface-soft);
+  border: 1px solid var(--stroke);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--muted);
+}
+
+.badge {
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+}
+
+.badge-low { color: #1b5e20; background: #c8e6c9; }
+.badge-medium { color: #e65100; background: #ffe0b2; }
+.badge-high { color: #bf360c; background: #ffccbc; }
+.badge-critical { color: #fff; background: var(--danger); }
+
+/* ── Confidence bar ─────────────────────────────── */
+.confidence {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: center;
+  margin: 14px 0;
+  padding: 12px;
+  background: var(--surface-soft);
+  border: 1px solid var(--stroke);
+  font-size: 0.9rem;
+}
+
+.bar-track {
+  height: 4px;
+  overflow: hidden;
+  background: var(--stroke);
+}
+
+.bar-fill {
+  height: 100%;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+code {
+  display: inline;
+  padding: 2px 6px;
+  background: var(--surface-soft);
+  border: 1px solid var(--stroke);
+  font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+  font-size: 0.85em;
+  color: #c41c3b;
+}
+
+/* ── History ────────────────────────────────────── */
+.analysis-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.analysis-card {
+  padding: 16px;
+  border: 1px solid var(--stroke);
+  background: var(--surface);
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.analysis-card:hover {
+  border-color: var(--primary);
+}
+
+.analysis-card-active {
+  border-color: var(--primary);
+  border-left: 4px solid var(--primary);
+  padding-left: 12px;
+  background: var(--primary-soft);
+}
+
+.analysis-card h3 {
+  margin: 0 0 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.analysis-card p {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.delete-btn {
+  margin-left: auto;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid var(--stroke) !important;
+  border-radius: 0 !important;
+  color: var(--danger);
+  background: transparent !important;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none !important;
+}
+
+.delete-btn:hover {
+  background: #fff3f3 !important;
+  border-color: var(--danger) !important;
+  transform: none !important;
+}
+
+/* ── Typography ─────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 700;
+  color: var(--text);
+}
+
+h1 { font-size: 1.4rem; letter-spacing: 0.01em; }
+h2 { font-size: 1.1rem; letter-spacing: 0.01em; }
+h3 { font-size: 1rem; }
+
+p { margin: 0; line-height: 1.5; }
+
+a { color: var(--primary); text-decoration: none; font-weight: 600; }
+
+ul, ol { margin: 12px 0; padding-left: 24px; }
+li { margin: 8px 0; font-size: 0.9rem; line-height: 1.6; }
+
+/* ── Responsive ─────────────────────────────────── */
+@media (max-width: 760px) {
+  .page-shell {
+    padding: 10px;
+  }
+
+  .main-layout,
+  .row {
+    grid-template-columns: 1fr;
+  }
+
+  .header-nav {
+    gap: 8px;
+  }
+}

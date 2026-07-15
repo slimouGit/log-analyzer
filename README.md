@@ -2,25 +2,25 @@
 
 A local AI Engineering demo app that analyzes application logs and stacktraces with a local LLM through an OpenAI-compatible API.
 
-The app is designed as a small portfolio project for software developers who want to demonstrate practical local LLM integration beyond RAG. It uses FastAPI, React, SQLite, Pydantic and either Ollama or LM Studio.
+The app is designed as a project to demonstrate practical local LLM integration. It uses FastAPI, React, SQLite, Pydantic and either Ollama or LM Studio.
 
 ## TL;DR Run Commands
 
-1. Backend starten (Projektroot):
+1. Start backend (project root):
 
       .\.venv\Scripts\Activate.ps1
       py -m uvicorn app.main:app --reload --port 8000
 
-2. Frontend starten (zweites Terminal):
+2. Start frontend (second terminal):
 
       cd frontend
       npm run dev
 
-3. App im Browser:
+3. Open app in browser:
 
       http://localhost:5173
 
-Hinweis: Falls Port 5173 belegt ist, zeigt Vite automatisch eine Alternative an (z. B. 5174).
+Note: If port 5173 is already in use, Vite automatically suggests an alternative (for example 5174).
 
 ## Screenshots
 
